@@ -1,0 +1,11 @@
+.popup__alert {
+  max-width: 120px;
+  width: 100%;
+  margin: 60px auto 0;
+}
+
+@media screen and (max-width: 600px) {
+  .popup__alert {
+    margin: 50px auto 0;
+  }
+}
