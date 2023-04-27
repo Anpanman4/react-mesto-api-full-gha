@@ -7,6 +7,8 @@ const allowedCors = [
   'localhost:3000',
 ];
 
+const DEFAULT_ALLOWED_METHODS = 'GET,HEAD,PUT,PATCH,POST,DELETE';
+
 const corsMiddleWare = (req, res, next) => {
   const { method } = req;
   const { origin } = req.headers;
@@ -17,6 +19,7 @@ const corsMiddleWare = (req, res, next) => {
   }
 
   if (method === 'OPTIONS') {
+    res.header('Access-Control-Allow-Methods', DEFAULT_ALLOWED_METHODS);
     res.header('Access-Control-Allow-Headers', requestHeaders);
     return res.end();
   }
