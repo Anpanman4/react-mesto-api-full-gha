@@ -83,10 +83,10 @@ class Api {
 }
 
 const api = new Api({
-  baseUrl: "https://mesto.nomoreparties.co/v1/cohort-57/",
+  baseUrl: "http://mesto.kondratev.nomoredomains.monster/api/",
   headers: {
-    authorization: "8a834428-9740-47ce-9a26-1ae204198268",
-    "Content-Type": "application/json"
+    "Content-Type": "application/json",
+    "Authorization" : `Bearer ${localStorage.getItem("token")}`
   }
 })
 

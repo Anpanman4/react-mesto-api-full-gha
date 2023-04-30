@@ -42,7 +42,7 @@ class ApiAuth {
 }
 
 const apiAuth = new ApiAuth({
-  url: "https://auth.nomoreparties.co/"
+  url: "http://mesto.kondratev.nomoredomains.monster/api/"
 })
 
 export default apiAuth

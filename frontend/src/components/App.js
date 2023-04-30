@@ -112,7 +112,7 @@ function App() {
     if (token) {
       apiAuth.getUserData(token)
         .then((data) => {
-          setUserEmail(data.data.email)
+          setUserEmail(data.email)
           setIsLoggedIn(true);
           navigate("/");
         })
