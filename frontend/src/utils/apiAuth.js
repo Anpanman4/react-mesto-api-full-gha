@@ -42,7 +42,7 @@ class ApiAuth {
 }
 
 const apiAuth = new ApiAuth({
-  url: "http://mesto.kondratev.nomoredomains.monster/api/"
+  url: "http://mesto.kondratev.nomoredomains.monster/"
 })
 
 export default apiAuth
