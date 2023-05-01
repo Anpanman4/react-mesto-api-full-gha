@@ -1,3 +1,4 @@
+require('dotenv').config();
 const { hash, compare } = require('bcrypt');
 const jsonwebtoken = require('jsonwebtoken');
 
@@ -50,7 +51,7 @@ const login = (req, res, next) => {
           if (!isMatched) {
             next(new AuthError('Требуется авторизация'));
           } else {
-            const jwt = jsonwebtoken.sign({ _id: user._id }, JWT_SECRET, {
+            const jwt = jsonwebtoken.sign({ _id: user._id }, process.env.NODE_ENV !== 'production' ? JWT_SECRET : process.env.JWT_SECRET, {
               expiresIn: '7d',
             });
 
