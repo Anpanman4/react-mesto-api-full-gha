@@ -50,8 +50,7 @@ const likeCard = (req, res, next) => {
     req.params.cardId,
     { $addToSet: { likes: req.user._id } },
     { new: true },
-  )
-    .populate(['owner', 'likes'])
+  ).populate(['owner', 'likes'])
     .then((card) => {
       if (card) return res.send(card);
       return next(new NotFoundError('Карточка по ID не найдена'));
@@ -67,8 +66,7 @@ const dislikeCard = (req, res, next) => {
     req.params.cardId,
     { $pull: { likes: req.user._id } },
     { new: true },
-  )
-    .populate(['owner', 'likes'])
+  ).populate(['owner', 'likes'])
     .then((card) => {
       if (card) return res.send(card);
       return next(new NotFoundError('Карточка по ID не найдена'));

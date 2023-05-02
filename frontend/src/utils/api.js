@@ -77,7 +77,6 @@ class Api {
   }
 
   deleteLike(id) {
-    console.log(`${this._url}cards/${id}/likes`, this._headers)
     return fetch(`${this._url}cards/${id}/likes`, {
       method: "DELETE",
       headers: this._headers,
