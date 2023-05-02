@@ -149,8 +149,16 @@ function App() {
 
   const logout = () => {
     localStorage.clear();
+    setIsLoggedIn(false);
     navigate("/sign-in");
   }
+
+  useEffect(() => {
+    if (isLoggedIn) {
+      api.setHeaders(localStorage.getItem("token"))
+    }
+    checkToken();
+  }, [isLoggedIn])
 
   useEffect(() => {
     if (isLoggedIn) {
@@ -169,10 +177,6 @@ function App() {
       .catch((err) => console.log(err))
     }
   }, [isLoggedIn])
-
-  useEffect(() => {
-    checkToken();
-  }, [])
 
   return (
     <>

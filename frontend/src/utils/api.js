@@ -4,6 +4,13 @@ class Api {
     this._headers = options.headers;
   }
 
+  setHeaders(token) {
+    this._headers = {
+      "Content-Type": "application/json",
+      "Authorization" : `Bearer ${token}`
+    };
+  }
+
   _checkResponse(res) {
     if (res.ok) {
       return res.json()
@@ -70,6 +77,7 @@ class Api {
   }
 
   deleteLike(id) {
+    console.log(`${this._url}cards/${id}/likes`, this._headers)
     return fetch(`${this._url}cards/${id}/likes`, {
       method: "DELETE",
       headers: this._headers,
