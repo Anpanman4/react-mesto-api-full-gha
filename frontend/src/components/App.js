@@ -52,11 +52,9 @@ function App() {
   const onCardLike = (id) => {
     api.doLike(id)
     .then((newCard) => {
-      console.log(newCard)
       const newCards = cards.map((card) => {
         return card._id === newCard._id ? newCard : card;
       });
-      console.log(newCards)
       setCards(newCards);
     })
     .catch((err) => console.log(err))
@@ -65,11 +63,9 @@ function App() {
   const onCardDislike = (id) => {
     api.deleteLike(id)
     .then((newCard) => {
-      console.log(newCard)
       const newCards = cards.map((card) => {
         return card._id === newCard._id ? newCard : card;
       })
-      console.log(newCards)
       setCards(newCards);
     })
     .catch((err) => console.log(err))
