@@ -172,7 +172,7 @@ function App() {
       // получаю карточки с сервера
       api.getInitialCards()
       .then((data) => {
-        setCards(data.reverse())
+        setCards(data)
       })
       .catch((err) => console.log(err))
     }
