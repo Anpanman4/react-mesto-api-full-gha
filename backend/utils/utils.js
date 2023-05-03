@@ -5,7 +5,7 @@ const ERROR_PARAM = 401;
 const ERROR_ID = 404;
 const ERROR_DEFAULT = 500;
 
-const JWT_SECRET = 'secret_word';
+const JWT_SECRET = '123123123';
 
 module.exports = {
   PORT,

@@ -16,7 +16,8 @@ const createCard = (req, res, next) => {
 
   Card.create({ name, link, owner: req.user._id })
     .then((card) => {
-      if (card) res.status(201).send(card);
+      card.populate(['owner'])
+        .then(() => res.status(201).send(card));
     })
     .catch((err) => {
       if (err.name === 'ValidationError') next(new SyntexError('Переданы некорректные данные при создании карточки.'));
